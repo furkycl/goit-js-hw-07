@@ -27,6 +27,7 @@ labels.forEach((label) => {
   label.style.flexDirection = "column";
   label.style.marginBottom = "8px";
 });
+
 const inputs = loginForm.querySelectorAll("input");
 labels.forEach((input) => {
   input.style.width = "360px";
@@ -35,21 +36,22 @@ labels.forEach((input) => {
 });
 
 const loginButton = loginForm.querySelector("button");
-loginButton.style.backgroundColor = "#4e75ff";
-loginButton.style.width = "86px";
-loginButton.style.height = "40px";
-loginButton.style.borderRadius = "8px";
-loginButton.style.border = "none";
-loginButton.style.color = "#ffff";
-loginButton.style.cursor = "pointer";
+const style = document.createElement("style");
+style.textContent = `
+.style-button-hover {
+  background-color: #4e75ff;
+  width: 86px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.style-button-hover:hover {
 
-const styleInputsHover = document.createElement("styleInputsHover");
-styleInputsHover.textContent = `
-.style-inputs-hover:hover {
-  border : 3px solid #000000;
+  background-color: #6c8cff;
 }
 `;
 document.head.appendChild(style);
-inputs.forEach((input) => {
-  input.classList.add("style-inputs-hover:hover");
-});
+loginButton.classList.add("style-button-hover");
