@@ -25,17 +25,29 @@ document.addEventListener("DOMContentLoaded", () => {
   createBtn.style.height = "40px";
   createBtn.style.borderRadius = "8px";
   createBtn.style.color = "#ffffff";
+  createBtn.style.cursor = "pointer";
 
   const destroyBtn = document.createElement("button");
   destroyBtn.type = "button";
   destroyBtn.dataset.destroy = "";
   destroyBtn.textContent = "Destroy";
-  destroyBtn.style.width = "120px";
-  destroyBtn.style.height = "40px";
   destroyBtn.style.borderRadius = "8px";
-  destroyBtn.style.backgroundColor = "#FF4E4E";
-  destroyBtn.style.border = "none";
-  destroyBtn.style.color = "#ffffff";
+  const style = document.createElement("style");
+  style.textContent = `
+.destroyBtn {
+  width : 120px;
+  height : 40px;
+  color : #ffffff;
+  border: none;
+  background-color: #ff4e4e;
+  cursor: pointer;
+}
+.destroyBtn:hover {
+  background-color: #ff7070;
+}
+`;
+  document.head.appendChild(style);
+  destroyBtn.classList.add("destroyBtn");
 
   controls.append(input, createBtn, destroyBtn);
   const boxes = document.createElement("div");
