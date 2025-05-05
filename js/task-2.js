@@ -26,8 +26,21 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery");
+gallery.style.display = "flex";
+gallery.style.flexWrap = "wrap";
+
 const markup = images
   .map(({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`)
   .join("");
 
 gallery.insertAdjacentHTML("beforeend", markup);
+const galleryListLi = document.querySelectorAll(".gallery li");
+galleryListLi.forEach((li) => {
+  li.style.listStyle = "none";
+});
+const galleryPictures = document.querySelectorAll(".gallery li img");
+galleryPictures.forEach((img) => {
+  img.style.width = "360px";
+  img.style.height = "300px";
+  img.style.marginRight = "24px";
+});
